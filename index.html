@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to HTML Table</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="top-bar">
+    <button onclick="showTable('RuLang')">Русский</button>
+    <button onclick="showTable('KzLang')">Казахский</button>
+    <button onclick="showTable('Physics')">Физика</button>
+    <button onclick="showTable('History')">История</button>
+    <button onclick="showTable('Math')">Математика</button>
+    <input type="text" id="search-input" placeholder="Поиск..." oninput="searchQuestions()">
+</div>
+
+<div class="container">
+    <div id="RuLang-container" class="table-container">
+        <h2>Русский язык</h2>
+        <table id="RuLang-table" border="1">
+            <thead>
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Строки будут добавлены здесь -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="KzLang-container" class="table-container" style="display: none;">
+        <h2>Казахский язык</h2>
+        <table id="KzLang-table" border="1">
+            <thead>
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Строки будут добавлены здесь -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Physics-container" class="table-container" style="display: none;">
+        <h2>Физика</h2>
+        <table id="Physics-table" border="1">
+            <thead>
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Строки будут добавлены здесь -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="History-container" class="table-container" style="display: none;">
+        <h2>История</h2>
+        <table id="History-table" border="1">
+            <thead>
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Строки будут добавлены здесь -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Math-container" class="table-container" style="display: none;">
+        <h2>Математика</h2>
+        <table id="Math-table" border="1">
+            <thead>
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Строки будут добавлены здесь -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Подключаем JavaScript файл -->
+<script src="index.js"></script>
+</body>
+</html>
