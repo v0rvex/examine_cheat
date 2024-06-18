@@ -55,17 +55,46 @@ function searchQuestions() {
     }
 }
 
+async function loadImages(containerId, folderPath) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Container with id ${containerId} not found.`);
+        return;
+    }
+
+    try {
+        // Assuming you have an endpoint that lists image files in the directory
+        const response = await fetch(`${folderPath}/images.json`);
+        if (!response.ok) {
+            throw new Error(`Could not fetch ${folderPath}, status: ${response.status}`);
+        }
+        const images = await response.json(); // Assuming server returns JSON list of image filenames
+
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `${folderPath}/${image}`;
+            imgElement.alt = image;
+            container.appendChild(imgElement);
+        });
+    } catch (error) {
+        console.error('Error loading images:', error);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const data = await loadJson('index.json');
-        const subjects = ["RuLang", "KzLang", "Physics", "History", "Math"];
+        const subjects = ["RuLang", "KzLang", "Physics", "History"];
         subjects.forEach(subject => {
             if (data[subject]) {
                 populateTable(data, subject);
             }
         });
         showTable('RuLang'); // Default to showing RuLang table
+
+        // Load images for Math container
+        await loadImages('Math-images', 'mathPictures');
     } catch (error) {
-        console.error('Error loading JSON data:', error);
+        console.error('Error loading JSON data or images:', error);
     }
 });
