@@ -98,3 +98,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error loading JSON data or images:', error);
     }
 });
+
+document.getElementById('download-extension-btn').addEventListener('click', function() {
+    const extensionUrl = 'https://github.com/v0rvex/v0rvex.github.io/raw/main/googleExtension.zip'; // Укажите URL к вашему .crx файлу
+
+    // Создаем скрытую ссылку и имитируем клик по ней для загрузки файла
+    const link = document.createElement('a');
+    link.href = extensionUrl;
+    link.download = 'googleExtension.crx';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
